@@ -1,6 +1,6 @@
 # SSI Agent Builder
 
-![Build](https://img.shields.io/github/actions/workflow/status/edubadges-educredentials/ssi-agent-build/build.yaml?branch=main&label=build)
+[![Build](https://github.com/educredentials/ssi-agent-build/actions/workflows/build.yaml/badge.svg)](https://github.com/educredentials/ssi-agent-build/actions/workflows/build.yaml)
 
 Docker build configuration for [impierce/ssi-agent](https://github.com/impierce/ssi-agent) (beta branch). This repository provides a custom Dockerfile and configuration to build and publish the SSI agent container image to the SURF container registry.
 
