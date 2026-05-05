@@ -35,3 +35,9 @@ Prerequisites:
 ```bash
 just build
 ```
+
+This will copy files into the submodule, so run afterwards:
+
+```bash
+just clean
+````
