@@ -11,7 +11,7 @@
 #   - CR_SURF_PASSWORD: Password for cr.surf.nl registry
 #
 
-name: Build third party services containers on github container registry
+name: Build SSI Agent container
 
 on:
   push:
@@ -20,7 +20,7 @@ on:
 
 jobs:
   build-ssi-agent-local:
-    name: "Build SSI Agent from local Dockerfile"
+    name: "Build SSI Agent"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout with submodules
