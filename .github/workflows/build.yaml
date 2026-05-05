@@ -32,14 +32,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Copy Dockerfile into ssi-agent-source
-        run: |
-          cp Dockerfile ssi-agent-source/Dockerfile
-
-      - name: Copy config into ssi-agent-source
-        run: |
-          cp config.yaml ssi-agent-source/config.yaml
-
       - name: Log in to SDP Container Registry "Harbor"
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
@@ -65,7 +57,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v7
         with:
-          context: ssi-agent-source
+          context: .
           file: Dockerfile
           push: true
           cache-from: type=gha
