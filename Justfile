@@ -5,3 +5,6 @@ build:
 	cp Dockerfile ssi-agent-source/Dockerfile
 	cp config.yaml ssi-agent-source/config.yaml
 	{{runtime}} build -t ssi-agent-local -f ssi-agent-source/Dockerfile ssi-agent-source
+
+clean:
+	rm -f ssi-agent-source/Dockerfile ssi-agent-source/config.yaml
