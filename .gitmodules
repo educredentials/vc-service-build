@@ -1,0 +1,4 @@
+[submodule "ssi-agent-source"]
+	path = ssi-agent-source
+	url = https://github.com/impierce/ssi-agent.git
+	branch = beta
