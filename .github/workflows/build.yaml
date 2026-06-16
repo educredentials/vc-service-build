@@ -11,7 +11,7 @@
 #   - CR_SURF_PASSWORD: Password for cr.surf.nl registry
 #
 
-name: Build SSI Agent container
+name: Build VC Service container
 
 on:
   push:
@@ -23,8 +23,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-ssi-agent-local:
-    name: "Build SSI Agent"
+  build-vc-service-local:
+    name: "Build VC Service"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout with submodules
@@ -63,5 +63,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: |
-            cr.surf.nl/edubadges-educredentials/ssi-agent:${{ steps.tag.outputs.tag }}
-            cr.surf.nl/edubadges-educredentials/ssi-agent:latest
+            cr.surf.nl/edubadges-educredentials/vc-service:${{ steps.tag.outputs.tag }}
+            cr.surf.nl/edubadges-educredentials/vc-service:latest
