@@ -1,0 +1,11 @@
+# check=skip=JSONArgsRecommended
+FROM alpine:3
+
+RUN apk --no-cache add postgresql16-client
+
+COPY ./ssi-agent-source/agent_application/docker/db/init.sql init.sql
+
+ENV POSTGRES_CONNECTION_STRING=
+
+# Cannot be JSONArgs, as we need env var interpolation
+CMD psql -f init.sql ${POSTGRES_CONNECTION_STRING}

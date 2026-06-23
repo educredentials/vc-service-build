@@ -3,6 +3,7 @@
 [![Build](https://github.com/educredentials/ssi-agent-build/actions/workflows/build.yaml/badge.svg)](https://github.com/educredentials/ssi-agent-build/actions/workflows/build.yaml)
 
 Docker build configuration for [impierce/ssi-agent](https://github.com/impierce/ssi-agent) (beta branch). This repository provides a custom Dockerfile and configuration to build and publish the VC service container image to the SURF container registry.
+An additional -init container is built that can be used to prime the postgresql and create the proper tables.
 
 ## Usage
 
@@ -21,7 +22,11 @@ git tag 0.1.0
 git push origin 0.1.0
 ```
 
-The image will be published to `ghcr.io/edubadges-educredentials/vc-service:1.0.0` and `ghcr.io/edubadges-educredentials/vc-service:latest'
+The images will be published to:
+ - cr.surf.nl/edubadges-educredentials/vc-service:0.1.0
+ - cr.surf.nl/edubadges-educredentials/vc-service:latest
+ - cr.surf.nl/edubadges-educredentials/vc-service-init:0.1.0
+ - cr.surf.nl/edubadges-educredentials/vc-service-init:latest
 
 Tagging is optional. Without tag, only a :latest image will be published.
 
@@ -36,8 +41,6 @@ Prerequisites:
 just build
 ```
 
-This will copy files into the submodule, so run afterwards:
-
-```bash
-just clean
-````
+This will update submodules and build both the service and the init image. It
+will not publish those. The images are suffixed with -local and are meant for
+local testing and usage.

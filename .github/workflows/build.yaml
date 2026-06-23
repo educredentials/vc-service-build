@@ -54,7 +54,7 @@ jobs:
             echo "tag=latest" >> $GITHUB_OUTPUT
           fi
 
-      - name: Build and push Docker image
+      - name: Build and push service image
         uses: docker/build-push-action@v7
         with:
           context: .
@@ -65,3 +65,15 @@ jobs:
           tags: |
             cr.surf.nl/edubadges-educredentials/vc-service:${{ steps.tag.outputs.tag }}
             cr.surf.nl/edubadges-educredentials/vc-service:latest
+
+      - name: Build and push init image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: Dockerfile.init
+          push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          tags: |
+            cr.surf.nl/edubadges-educredentials/vc-service-init:${{ steps.tag.outputs.tag }}
+            cr.surf.nl/edubadges-educredentials/vc-service-init:latest
